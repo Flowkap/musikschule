@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Musikschule Gaby Kappes – Gesang &amp; Holzblasinstrumente in Bernkastel-Kues</title>
+<meta name="description" content="Musikschule Gaby Kappes: Gesangsausbildung und Unterricht für Klarinette, Saxophon, Querflöte und Blockflöte in Bernkastel-Wehlen – für alle Altersgruppen, auch online.">
+<meta name="theme-color" content="#6b2a60">
+<link rel="icon" href="assets/img/cropped-Kappes_Musikschule_Logo_transp_small-1-32x32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/img/cropped-Kappes_Musikschule_Logo_transp_small-1-180x180.png">
+<style>
+  :root {
+    --bg: #fbf7f3;
+    --bg-2: #f4ece6;
+    --card: #ffffff;
+    --text: #2e2230;
+    --muted: #6f6170;
+    --plum: #6b2a60;
+    --plum-dark: #4c1d44;
+    --plum-soft: #efe2ec;
+    --amber: #d98a4e;
+    --line: rgba(107, 42, 96, .14);
+    --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --radius: 16px;
+    --max: 1100px;
+    --nav-h: 72px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: var(--nav-h); }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: var(--plum); }
+  :focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; border-radius: 4px; }
+
+  .wrap { width: min(var(--max), 100% - 2.5rem); margin-inline: auto; }
+
+  h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.2; margin: 0 0 1rem; color: var(--plum-dark); }
+  h2 { font-size: clamp(2rem, 4.5vw, 2.9rem); }
+  h3 { font-size: 1.45rem; }
+
+  .eyebrow {
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: .25em;
+    font-size: .78rem;
+    font-weight: 600;
+    color: var(--amber);
+    margin-bottom: .6rem;
+  }
+  .flourish { display: flex; align-items: center; gap: .75rem; color: var(--plum); margin: 0 0 1.75rem; }
+  .flourish::before, .flourish::after { content: ""; height: 1px; width: 48px; background: currentColor; opacity: .35; }
+  .center { text-align: center; }
+  .center .flourish { justify-content: center; }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: .5rem;
+    padding: .85rem 1.6rem; border-radius: 999px;
+    font-weight: 600; font-size: .95rem; text-decoration: none;
+    transition: transform .2s ease, background-color .2s ease, box-shadow .2s ease;
+  }
+  .btn-primary { background: var(--plum); color: #fff; box-shadow: 0 10px 26px -12px rgba(107, 42, 96, .8); }
+  .btn-primary:hover { background: var(--plum-dark); transform: translateY(-2px); }
+  .btn-light { background: rgba(255, 255, 255, .92); color: var(--plum-dark); }
+  .btn-light:hover { background: #fff; transform: translateY(-2px); }
+
+  /* ---------- Navigation ---------- */
+  .nav {
+    position: fixed; inset: 0 0 auto 0; z-index: 50; height: var(--nav-h);
+    background: rgba(251, 247, 243, .9);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav .wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; }
+  .nav-logo img { height: 56px; width: auto; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; margin: 0; padding: 0; }
+  .nav-links a {
+    text-decoration: none; color: var(--muted); font-weight: 500; font-size: .95rem;
+    padding: .35rem 0; position: relative; transition: color .2s;
+  }
+  .nav-links a::after {
+    content: ""; position: absolute; left: 50%; right: 50%; bottom: 0; height: 2px;
+    background: var(--plum); border-radius: 2px; transition: left .25s ease, right .25s ease;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--plum-dark); }
+  .nav-links a:hover::after, .nav-links a.active::after { left: 0; right: 0; }
+  .nav-toggle { display: none; background: none; border: 0; color: var(--plum-dark); padding: .5rem; cursor: pointer; }
+  .nav-toggle span { display: block; width: 26px; height: 2px; background: currentColor; margin: 6px 0; transition: transform .25s, opacity .25s; }
+
+  @media (max-width: 780px) {
+    .nav-toggle { display: block; }
+    .nav-links {
+      position: absolute; top: var(--nav-h); left: 0; right: 0; flex-direction: column; gap: 0;
+      background: var(--bg); border-bottom: 1px solid var(--line);
+      max-height: 0; overflow: hidden; transition: max-height .3s ease;
+    }
+    .nav-links a { display: block; padding: 1rem 1.25rem; }
+    .nav.open .nav-links { max-height: 420px; }
+    .nav.open .nav-toggle span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .nav.open .nav-toggle span:nth-child(2) { opacity: 0; }
+    .nav.open .nav-toggle span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative; isolation: isolate; overflow: hidden;
+    min-height: min(92svh, 820px);
+    display: flex; align-items: flex-end;
+    padding: calc(var(--nav-h) + 4rem) 0 clamp(3rem, 8vw, 6rem);
+    color: #fff;
+  }
+  .hero-bg { position: absolute; inset: 0; z-index: -2; }
+  .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: 45% 30%; }
+  .hero::before {
+    content: ""; position: absolute; inset: 0; z-index: -1;
+    background: linear-gradient(90deg, rgba(46, 18, 42, .88) 0%, rgba(76, 29, 68, .6) 45%, rgba(76, 29, 68, .05) 80%);
+  }
+  .hero-content { max-width: 560px; }
+  .hero h1 { color: #fff; font-size: clamp(2.4rem, 6vw, 4.2rem); margin-bottom: 1.25rem; }
+  .hero h1 em { font-style: italic; color: #f6c9a4; }
+  .hero p { font-size: 1.15rem; color: rgba(255, 255, 255, .88); margin: 0 0 2rem; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; }
+  @media (max-width: 700px) {
+    .hero::before { background: linear-gradient(180deg, rgba(46, 18, 42, .35) 0%, rgba(46, 18, 42, .9) 70%); }
+    .hero-bg img { object-position: 60% 20%; }
+  }
+
+  /* ---------- Sections ---------- */
+  section { padding: clamp(4.5rem, 10vw, 7rem) 0; }
+  .alt { background: var(--bg-2); }
+
+  .welcome { max-width: 760px; margin-inline: auto; }
+  .welcome p { font-family: var(--font-display); font-size: clamp(1.2rem, 2.4vw, 1.45rem); line-height: 1.65; color: var(--text); }
+  .signature { font-family: var(--font-display); font-style: italic; font-size: 1.6rem; color: var(--plum); margin-top: 1.5rem; }
+
+  .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 3rem; }
+  .fact { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.4rem 1.5rem; text-align: center; }
+  .fact strong { display: block; font-family: var(--font-display); font-size: 1.6rem; color: var(--plum); line-height: 1.2; }
+  .fact span { color: var(--muted); font-size: .95rem; }
+
+  /* ---------- Unterricht ---------- */
+  .courses { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
+  .course {
+    background: var(--card); border: 1px solid var(--line); border-radius: calc(var(--radius) * 1.25);
+    padding: clamp(1.75rem, 4vw, 2.5rem); display: flex; flex-direction: column;
+    box-shadow: 0 20px 40px -32px rgba(76, 29, 68, .45);
+  }
+  .course-icon {
+    width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center;
+    background: var(--plum-soft); color: var(--plum); margin-bottom: 1.25rem;
+  }
+  .course-icon svg { width: 28px; height: 28px; }
+  .course > p { color: var(--muted); margin: 0 0 1.5rem; }
+  .course h4 {
+    margin: 1.25rem 0 .6rem; font-size: .78rem; text-transform: uppercase; letter-spacing: .2em; color: var(--amber);
+  }
+  .tags { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; margin: 0; padding: 0; }
+  .tags li { background: var(--plum-soft); color: var(--plum-dark); border-radius: 999px; padding: .3rem .85rem; font-size: .9rem; }
+  .tags.instruments li { background: var(--plum); color: #fff; font-weight: 500; }
+  .units { list-style: none; margin: 0; padding: 0; }
+  .units li { padding: .45rem 0; border-bottom: 1px dashed var(--line); display: flex; justify-content: space-between; gap: 1rem; }
+  .units li:last-child { border-bottom: 0; }
+  .units li span:last-child { color: var(--muted); font-size: .92rem; text-align: right; }
+  .course-note {
+    margin-top: 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;
+  }
+  .note {
+    display: flex; gap: .9rem; align-items: flex-start;
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.1rem 1.25rem;
+  }
+  .note svg { flex: none; width: 24px; height: 24px; color: var(--plum); margin-top: .15rem; }
+  .note p { margin: 0; color: var(--muted); font-size: .97rem; }
+  .note strong { color: var(--text); }
+  @media (max-width: 820px) { .courses { grid-template-columns: 1fr; } }
+
+  /* ---------- Über mich ---------- */
+  .about { display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
+  .about-photo { position: sticky; top: calc(var(--nav-h) + 2rem); }
+  .about-photo img { border-radius: calc(var(--radius) * 1.25); aspect-ratio: 4 / 5; object-fit: cover; object-position: 40% center; width: 100%; }
+  .about-photo::after {
+    content: ""; position: absolute; inset: -14px 14px 14px -14px; z-index: -1;
+    border: 2px solid var(--plum); border-radius: calc(var(--radius) * 1.25); opacity: .35;
+  }
+  .about-photo { isolation: isolate; }
+  .about-text p { margin: 0 0 1.2rem; }
+  .about-text .lead { font-size: 1.2rem; color: var(--plum-dark); }
+  blockquote {
+    margin: 2.5rem 0 0; padding: 1.75rem 2rem; border-radius: var(--radius);
+    background: var(--plum); color: #fff; position: relative;
+  }
+  blockquote p { font-family: var(--font-display); font-style: italic; font-size: 1.45rem; line-height: 1.4; margin: 0 0 .6rem !important; }
+  blockquote cite { font-style: normal; font-size: .9rem; letter-spacing: .15em; text-transform: uppercase; color: #f6c9a4; }
+  blockquote::before {
+    content: "\201C"; position: absolute; top: -.35rem; right: 1.25rem;
+    font-family: var(--font-display); font-size: 6rem; line-height: 1; color: rgba(255, 255, 255, .15);
+  }
+  @media (max-width: 860px) {
+    .about { grid-template-columns: 1fr; }
+    .about-photo { position: relative; top: 0; max-width: 460px; margin: 0 auto 1rem; width: calc(100% - 14px); }
+  }
+
+  /* ---------- Auftritte ---------- */
+  .events { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin: 2.5rem 0 2rem; }
+  .event {
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 1.75rem 1rem; text-align: center; font-family: var(--font-display); font-size: 1.25rem; color: var(--plum-dark);
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .event:hover { transform: translateY(-3px); box-shadow: 0 18px 30px -24px rgba(76, 29, 68, .6); }
+  .event svg { width: 30px; height: 30px; color: var(--amber); margin: 0 auto .75rem; display: block; }
+  .events-cta { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+
+  /* ---------- Kontakt ---------- */
+  .contact { background: var(--plum-dark); color: #fff; }
+  .contact h2 { color: #fff; }
+  .contact .flourish { color: #f6c9a4; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+  .contact-lead { color: rgba(255, 255, 255, .82); font-size: 1.1rem; margin: 0 0 2rem; }
+  .contact-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
+  .contact-list li { display: flex; gap: 1rem; align-items: flex-start; }
+  .contact-list svg { flex: none; width: 22px; height: 22px; color: #f6c9a4; margin-top: .25rem; }
+  .contact-list a { color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255, 255, 255, .3); }
+  .contact-list a:hover { border-color: #fff; }
+  .contact-card {
+    background: rgba(255, 255, 255, .07); border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: calc(var(--radius) * 1.25); padding: clamp(1.75rem, 4vw, 2.5rem); text-align: center;
+  }
+  .contact-card p { color: rgba(255, 255, 255, .8); margin: 0 0 1.5rem; }
+  .socials { display: flex; justify-content: center; gap: 1rem; margin-top: 1.75rem; }
+  .socials a {
+    width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center;
+    background: rgba(255, 255, 255, .1); color: #fff; transition: background-color .2s;
+  }
+  .socials a:hover { background: rgba(255, 255, 255, .22); }
+  .socials svg { width: 20px; height: 20px; }
+  @media (max-width: 820px) { .contact-grid { grid-template-columns: 1fr; } }
+
+  /* ---------- Footer / Impressum ---------- */
+  footer { background: #2a1027; color: rgba(255, 255, 255, .65); padding: 2rem 0; font-size: .9rem; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; align-items: center; }
+  footer a { color: rgba(255, 255, 255, .8); }
+  .legal-modal {
+    width: min(760px, 100% - 2rem); max-height: 86vh; padding: 0; overflow-y: auto;
+    border: 1px solid var(--line); border-radius: var(--radius);
+    background: var(--bg); color: var(--muted); font-size: .92rem;
+    box-shadow: 0 30px 80px -20px rgba(46, 18, 42, .6);
+  }
+  .legal-modal::backdrop { background: rgba(42, 16, 39, .75); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+  .legal-head {
+    position: sticky; top: 0; z-index: 1;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    padding: 1.25rem 1.5rem; background: var(--bg); border-bottom: 2px solid var(--plum-soft);
+  }
+  .legal-head h2 { margin: 0; font-size: 1.4rem; }
+  .legal-close {
+    flex: none; width: 40px; height: 40px; border-radius: 50%; border: 0; cursor: pointer;
+    background: var(--plum-soft); color: var(--plum-dark); font-size: 1.5rem; line-height: 1;
+  }
+  .legal-close:hover { background: var(--plum); color: #fff; }
+  .legal-body { padding: .5rem 1.5rem 2rem; }
+  .legal-body h3 { margin: 1.75rem 0 .5rem; font-family: var(--font-body); font-size: .95rem; color: var(--text); }
+  .legal-body h4 { margin: 1.25rem 0 .35rem; font-size: .9rem; color: var(--text); }
+  .legal-body p { margin: 0 0 1rem; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Hauptnavigation">
+  <div class="wrap">
+    <a class="nav-logo" href="#top" aria-label="Zum Seitenanfang"><img src="assets/img/cropped-Kappes_Musikschule_Logo_transp_small.png" alt="Gaby Kappes Musikschule" width="120" height="120"></a>
+    <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#willkommen">Willkommen</a></li>
+      <li><a href="#unterricht">Unterricht</a></li>
+      <li><a href="#ueber-mich">Über mich</a></li>
+      <li><a href="#auftritte">Auftritte</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-bg">
+    <img src="assets/img/gesang-gross-1600x669.jpg"
+         srcset="assets/img/gesang-gross-768x321.jpg 768w, assets/img/gesang-gross-1600x669.jpg 1600w"
+         sizes="100vw" alt="" width="1600" height="669" fetchpriority="high">
+  </div>
+  <div class="wrap">
+    <div class="hero-content">
+      <span class="eyebrow" style="color:#f6c9a4">Musikschule Gaby Kappes</span>
+      <h1>Musik ist eine <em>Sprache</em>, die jeder versteht.</h1>
+      <p>Gesangsausbildung und Unterricht an Holzblasinstrumenten in Bernkastel-Wehlen – für alle Altersgruppen.</p>
+      <div class="hero-actions">
+        <a class="btn btn-light" href="#unterricht">Unterricht entdecken</a>
+        <a class="btn btn-primary" href="#kontakt">Anfrage senden</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="willkommen">
+    <div class="wrap center">
+      <span class="eyebrow">Herzlich willkommen</span>
+      <h2>Musik aus Leidenschaft</h2>
+      <div class="flourish">♪</div>
+      <div class="welcome">
+        <p>Ich bin eine Musikerin aus Leidenschaft und liebe es daher, Musik als Sprache zu benutzen, ob instrumental oder mittels Gesang. Mit Musik kann man je nach Klang oder Lautstärke seine Gefühle, Wünsche und Sehnsüchte mitteilen, egal in welchem Land oder in welcher Sprache auf dieser Welt. Musik führt zusammen, egal ob als Musiker, Sänger oder Zuhörer. Alle verstehen die Sprache der Musik.</p>
+        <p>Ich freue mich auf Ihre Anfrage!</p>
+        <div class="signature">Gaby Kappes</div>
+      </div>
+      <div class="facts">
+        <div class="fact"><strong>seit 2001</strong><span>eigene Musikschule</span></div>
+        <div class="fact"><strong>Gesang</strong><span>Klassik · Musical · Film · Pop</span></div>
+        <div class="fact"><strong>4 Instrumente</strong><span>Klarinette · Saxophon · Querflöte · Blockflöte</span></div>
+        <div class="fact"><strong>Alle Altersgruppen</strong><span>vor Ort oder online</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="unterricht" class="alt">
+    <div class="wrap">
+      <span class="eyebrow">Angebot</span>
+      <h2>Unterricht</h2>
+      <div class="flourish">♪</div>
+
+      <div class="courses">
+        <article class="course">
+          <div class="course-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><path d="M12 17v5"/><path d="M8 22h8"/></svg>
+          </div>
+          <h3>Gesangsausbildung</h3>
+          <p>Einzelunterricht für die eigene Stimme – vom ersten Ton bis zur ausdrucksstarken Interpretation.</p>
+          <h4>Musikstile</h4>
+          <ul class="tags instruments"><li>Klassik</li><li>Musical</li><li>Film</li><li>Pop</li></ul>
+          <h4>Unterrichtsinhalte</h4>
+          <ul class="tags"><li>Körperhaltung</li><li>Atemtechniken</li><li>Stimmbildung</li><li>Interpretation</li></ul>
+          <h4>Unterrichtseinheiten</h4>
+          <ul class="units">
+            <li><span>45 Minuten</span><span>Einzelunterricht</span></li>
+            <li><span>60 Minuten</span><span>Einzelunterricht</span></li>
+          </ul>
+        </article>
+
+        <article class="course">
+          <div class="course-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+          </div>
+          <h3>Instrumentalunterricht</h3>
+          <p>Unterricht für alle Altersgruppen an folgenden Holzblasinstrumenten:</p>
+          <h4>Instrumente</h4>
+          <ul class="tags instruments"><li>Klarinette</li><li>Saxophon</li><li>Querflöte</li><li>Blockflöte</li></ul>
+          <h4>Unterrichtsinhalte</h4>
+          <ul class="tags"><li>Haltung</li><li>Atmung</li><li>Ansatz</li><li>Tonbildung / Intonation</li><li>Artikulation / Rhythmus</li><li>Notenlesen &amp; Musiktheorie</li><li>Interpretation</li></ul>
+          <h4>Unterrichtseinheiten</h4>
+          <ul class="units">
+            <li><span>30 Minuten</span><span>Einzelunterricht</span></li>
+            <li><span>45 Minuten</span><span>Einzelunterricht</span></li>
+            <li><span>60 Minuten</span><span>Einzelunterricht</span></li>
+            <li><span>30 Minuten</span><span>Gruppe zu zweit (nur Blockflöte)</span></li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="course-note">
+        <div class="note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>
+          <p><strong>Vor Ort</strong> im Unterrichtsraum in Bernkastel-Wehlen.</p>
+        </div>
+        <div class="note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+          <p><strong>Online</strong> per Webcam über Skype oder Zoom – alternativ möglich.</p>
+        </div>
+        <div class="note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+          <p><strong>Unterrichtsgebühren</strong> erfahren Sie gerne auf Nachfrage.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ueber-mich">
+    <div class="wrap">
+      <div class="about">
+        <div class="about-photo">
+          <img src="assets/img/MG_8230-768x512.jpg"
+               srcset="assets/img/MG_8230-768x512.jpg 768w, assets/img/MG_8230-2048x1365.jpg 2048w"
+               sizes="(max-width: 860px) 90vw, 460px"
+               alt="Gaby Kappes singt live mit Mikrofon" loading="lazy">
+        </div>
+        <div class="about-text">
+          <span class="eyebrow">Über mich</span>
+          <h2>Gaby Kappes</h2>
+          <div class="flourish">♪</div>
+          <p class="lead">Mein Name ist Gaby Kappes. Ich bin Musikerin und Sängerin aus Leidenschaft. Seit 2001 führe ich meine eigene Musikschule in Bernkastel-Wehlen.</p>
+          <p>Hier biete ich in meinem Unterrichtsraum Instrumental- und Gesangsunterricht für alle Altersgruppen an.</p>
+          <p>Ursprünglich ausgebildet an der Klarinette, kamen mit der Zeit autodidaktisch das Saxophon, die Querflöte und die Blockflöte dazu. Eine Ausbildung zur Dirigentin schloss sich an. Im Blasorchesterbereich war ich viele Jahre als Dirigentin von Jugend- und Blasorchester tätig.</p>
+          <p>Meine Stimmausbildung absolvierte ich bei mehreren Gesangspädagogen/innen. Auch nahm ich an mehreren Jazzworkshops teil, u. a. bei Nicole Metzger, Deutschland. Klassischen Operngesang belegte ich schließlich bei der international bekannten Opernsängerin Wiebke Goetges aus Amsterdam, die mich auch an die Gesangspädagogik führte.</p>
+          <p>Ich habe in den vergangenen Jahren in verschiedenen Ensembles und Bands gesungen. Heute bin ich als Solistin tätig.</p>
+          <p>Ich liebe gute Musik und finde sie unerlässlich für unsere Kultur. Dabei bin ich offen für die verschiedenen Musikrichtungen. Musik ist eine Sprache, die über Grenzen und Sprachbarrieren hinweg auf der ganzen Welt verstanden wird. Sie führt die Menschen zusammen und verbindet sie. Sie lässt uns den Alltag vergessen und Freude erleben. Sie drückt Freude, Glück und Leid aus.</p>
+          <blockquote>
+            <p>Music was my first love<br>and it will be my last</p>
+            <cite>John Miles</cite>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="auftritte" class="alt">
+    <div class="wrap center">
+      <span class="eyebrow">Gesang für Ihren Anlass</span>
+      <h2>Auftritte</h2>
+      <div class="flourish">♪</div>
+      <p style="max-width:60ch;margin:0 auto;color:var(--muted)">Ich singe auch auf Ihrer Veranstaltung – egal ob Hochzeit, Taufe, Trauerfeier oder sonstige Anlässe. Bei Interesse sprechen Sie mich bitte einfach an!</p>
+      <div class="events">
+        <div class="event"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="14" r="6"/><circle cx="15" cy="14" r="6"/><path d="m10 3 2 2 2-2"/></svg>Hochzeit</div>
+        <div class="event"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2c3 4 5 7 5 10a5 5 0 0 1-10 0c0-3 2-6 5-10z"/></svg>Taufe</div>
+        <div class="event"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22V8"/><path d="M12 8c0-3 2-5 5-6 0 3-2 5-5 6z"/><path d="M12 12c0-3-2-5-5-6 0 3 2 5 5 6z"/></svg>Trauerfeier</div>
+        <div class="event"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/></svg>Sonstige Anlässe</div>
+      </div>
+      <div class="events-cta">
+        <a class="btn btn-primary" href="https://www.youtube.com/channel/UCBpAhEUqIuXWQeZ6rGpqL3w" target="_blank" rel="noopener">Aufnahmen auf YouTube</a>      </div>
+    </div>
+  </section>
+
+  <section id="kontakt" class="contact">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div>
+          <span class="eyebrow" style="color:#f6c9a4">Kontakt</span>
+          <h2>Ich freue mich auf Ihre Anfrage</h2>
+          <div class="flourish">♪</div>
+          <p class="contact-lead">Für Unterricht, Probestunden oder Gesang auf Ihrer Veranstaltung – rufen Sie an oder schreiben Sie mir.</p>
+          <ul class="contact-list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+              <span>Musikschule Gaby Kappes<br>Hauptstraße 17<br>54470 Bernkastel-Kues</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+              <a href="tel:+4965313707">06531 / 3707</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+              <a href="mailto:kontakt@gabykappes.de">kontakt@gabykappes.de</a>
+            </li>
+          </ul>
+        </div>
+        <div class="contact-card">
+          <p>Am schnellsten erreichen Sie mich per E-Mail.</p>
+          <a class="btn btn-light" href="mailto:kontakt@gabykappes.de">E-Mail schreiben</a>
+          <div class="socials">
+            <a href="https://de-de.facebook.com/GabyKappesMusikschule/" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8h3V4h-3a5 5 0 0 0-5 5v2H7v4h2v7h4v-7h3l1-4h-4V9a1 1 0 0 1 1-1z"/></svg>
+            </a>
+            <a href="https://www.youtube.com/channel/UCBpAhEUqIuXWQeZ6rGpqL3w" target="_blank" rel="noopener" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.8 15.1V8.9l5.7 3.1z"/></svg>
+            </a>
+            <a href="mailto:kontakt@gabykappes.de" aria-label="E-Mail">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year">2026</span> Musikschule Gaby Kappes</span>
+    <span><a href="#impressum">Impressum</a> · <a href="#datenschutz">Datenschutz</a></span>
+  </div>
+</footer>
+
+<dialog class="legal-modal" id="impressum" aria-labelledby="impressum-title">
+  <div class="legal-head">
+    <h2 id="impressum-title">Impressum</h2>
+    <button class="legal-close" aria-label="Schließen">×</button>
+  </div>
+  <div class="legal-body">
+    <p>Gaby Kappes<br>
+    Musikschule Gaby Kappes<br>
+    Hauptstraße 17<br>
+    54470 Bernkastel-Kues</p>
+    <p>Telefon: <a href="tel:+4965313707">06531 3707</a><br>
+    E-Mail: <a href="mailto:kontakt@gabykappes.de">kontakt@gabykappes.de</a></p>
+
+    <h3>Verbraucherstreitbeilegung</h3>
+    <p>Ich bin nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+
+    <h3>Haftung für Inhalte</h3>
+    <p>Die Inhalte dieser Seite wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte kann jedoch keine Gewähr übernommen werden. Für eigene Inhalte bin ich nach den allgemeinen Gesetzen verantwortlich. Eine Verpflichtung, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen, besteht nicht. Bei Bekanntwerden von Rechtsverletzungen werden entsprechende Inhalte umgehend entfernt.</p>
+
+    <h3>Haftung für Links</h3>
+    <p>Diese Seite enthält Links zu externen Webseiten Dritter, auf deren Inhalte ich keinen Einfluss habe. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber verantwortlich. Zum Zeitpunkt der Verlinkung waren keine Rechtsverstöße erkennbar. Bei Bekanntwerden von Rechtsverletzungen werden derartige Links umgehend entfernt.</p>
+
+    <h3>Urheberrecht</h3>
+    <p>Die Inhalte und Werke auf dieser Seite unterliegen dem deutschen Urheberrecht. Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der vorherigen schriftlichen Zustimmung des jeweiligen Rechteinhabers.</p>
+  </div>
+</dialog>
+
+<dialog class="legal-modal" id="datenschutz" aria-labelledby="datenschutz-title">
+  <div class="legal-head">
+    <h2 id="datenschutz-title">Datenschutzerklärung</h2>
+    <button class="legal-close" aria-label="Schließen">×</button>
+  </div>
+  <div class="legal-body">
+    <h4>Verantwortliche</h4>
+    <p>Gaby Kappes, Hauptstraße 17, 54470 Bernkastel-Kues, Telefon: 06531 3707, E-Mail: <a href="mailto:kontakt@gabykappes.de">kontakt@gabykappes.de</a></p>
+    <h4>Hosting</h4>
+    <p>Diese Website wird über GitHub Pages der GitHub, Inc. (USA) bereitgestellt. Beim Aufruf protokolliert GitHub nach eigenen Angaben Ihre IP-Adresse zu Sicherheitszwecken. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; mein berechtigtes Interesse ist eine sichere und stabile Bereitstellung der Website. Eine Speicherdauer nennt GitHub nicht. Dabei können Daten in die USA übermittelt werden; GitHub ist nach dem EU-US Data Privacy Framework zertifiziert. Details finden Sie in der <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">Datenschutzerklärung von GitHub</a>.</p>
+    <h4>Keine Cookies, kein Tracking</h4>
+    <p>Diese Website setzt keine Cookies, verwendet keine Analyse- oder Tracking-Werkzeuge und lädt keine Inhalte von Drittanbietern wie Schriftarten, Skripte oder eingebettete Videos.</p>
+    <h4>Kontakt per E-Mail oder Telefon</h4>
+    <p>Wenn Sie mich per E-Mail oder Telefon kontaktieren, verarbeite ich Ihre Angaben (z. B. Name, Kontaktdaten, Inhalt der Anfrage) zur Bearbeitung Ihrer Anfrage. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, soweit Ihre Anfrage auf einen Vertrag wie Unterricht oder einen Auftritt abzielt, ansonsten Art. 6 Abs. 1 lit. f DSGVO; mein berechtigtes Interesse ist die Beantwortung Ihrer Anfrage. E-Mails werden über den E-Mail-Dienst von INWX (Berlin) an mein Postfach weitergeleitet. Die Daten werden gelöscht, sobald sie nicht mehr benötigt werden und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
+    <h4>Links zu externen Angeboten</h4>
+    <p>Diese Website enthält einfache Links zu YouTube und Facebook. Beim bloßen Besuch dieser Website werden keine Daten an diese Anbieter übertragen. Erst wenn Sie einen Link anklicken, gelangen Sie auf die Seite des jeweiligen Anbieters; dort gelten dessen Datenschutzbestimmungen.</p>
+    <h4>Ihre Rechte</h4>
+    <p>Sie haben das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16 DSGVO), Löschung (Art. 17 DSGVO), Einschränkung der Verarbeitung (Art. 18 DSGVO), Datenübertragbarkeit (Art. 20 DSGVO) sowie auf Widerspruch gegen Verarbeitungen auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (Art. 21 DSGVO). Schreiben Sie mir dazu einfach eine E-Mail. Außerdem können Sie sich bei einer Datenschutz-Aufsichtsbehörde beschweren; zuständig ist der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Rheinland-Pfalz (<a href="https://www.datenschutz.rlp.de" target="_blank" rel="noopener">datenschutz.rlp.de</a>).</p>
+    <p>Stand: November 2026</p>
+  </div>
+</dialog>
+
+<script>
+  const nav = document.querySelector('.nav');
+  const toggle = document.querySelector('.nav-toggle');
+  toggle.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+  const links = [...document.querySelectorAll('.nav-links a')];
+  links.forEach(a => a.addEventListener('click', () => {
+    nav.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }));
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  document.querySelectorAll('main section').forEach(s => observer.observe(s));
+
+  const legalIds = ['impressum', 'datenschutz'];
+  const legalDialogs = legalIds.map(id => document.getElementById(id));
+  const openLegal = id => {
+    legalDialogs.forEach(d => { if (d.open && d.id !== id) d.close(); });
+    const d = document.getElementById(id);
+    if (!d.open) d.showModal();
+  };
+  const syncLegal = () => {
+    const id = location.hash.slice(1);
+    if (legalIds.includes(id)) openLegal(id);
+  };
+  legalIds.forEach(id => document.querySelectorAll(`a[href="#${id}"]`).forEach(a => a.addEventListener('click', e => {
+    e.preventDefault();
+    history.replaceState(null, '', '#' + id);
+    openLegal(id);
+  })));
+  legalDialogs.forEach(d => {
+    d.querySelector('.legal-close').addEventListener('click', () => d.close());
+    d.addEventListener('click', e => { if (e.target === d) d.close(); });
+    d.addEventListener('close', () => {
+      if (location.hash === '#' + d.id) history.replaceState(null, '', location.pathname + location.search);
+    });
+  });
+  window.addEventListener('hashchange', syncLegal);
+  syncLegal();
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
